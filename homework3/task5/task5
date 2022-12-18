@@ -1,0 +1,14 @@
+n = int(input('Введите число: '))
+def get_fib(n):
+    lst = []
+    a, b = 1, 1
+    for i in range(n):
+        lst.append(a)
+        a, b = b, a + b
+    lst.insert(0, 0)
+    a, b = 1, -1
+    for i in range (n):
+        lst.insert(0, a)
+        a, b = b, a - b
+    return lst
+print(get_fib(n))
