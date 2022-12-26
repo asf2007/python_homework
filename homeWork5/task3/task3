@@ -1,0 +1,30 @@
+def write_field(field) :
+    for i in range(len(field)) :
+        if i == 2 or i == 5 or i == 8 :
+            print(f" {field[i]} \n ---------- \n", end='' ) 
+        else :
+            print(f" {field[i]} |", end='')
+    return field
+def result(field) :
+    win = ((0, 1, 2), (3,4,5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)) 
+    for i in win :
+        if field[i[0]] ==  field[i[1]] == field[i[2]] :    
+            return True 
+    return False
+
+field = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+write_field(field)
+for i in range(len(field)) :
+    if i % 2 == 0 :
+        player1 = int(input("игрок 1 введите позицию: "))
+        field[player1 - 1] = "X" 
+        if result(field) == True :
+            print("player1 - win" )
+            break
+    else :
+        player2 = int(input("игрок 2 введите позицию: "))
+        field[player2 - 1] = "0"
+        if result(field) == True :
+            print("player2 - win" )
+            break
+    write_field(field)
